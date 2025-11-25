@@ -27,7 +27,8 @@ public class DiamondServlet extends HttpServlet
 				  "#C70039",
 				  "#900C3F",
 				  "#581845","#1ABC9C","#2ECC71","#3498DB","#9B59B6","#34495E","#16A085","#27AE60","#2980B9","#8E44AD"};
-			List<String> list = Arrays.asList(a);
+			
+		List<String> list = Arrays.asList(a);
 		
 		int temp  = 0; 
 		
