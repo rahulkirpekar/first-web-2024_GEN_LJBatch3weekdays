@@ -1,6 +1,8 @@
 package com.royal.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Enumeration;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -12,8 +14,25 @@ public class LoginServlet extends HttpServlet
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		PrintWriter out = 	response.getWriter();
+		out.print("<b>LoginServlet </b><br>");
 		
-		System.out.println("----LoginServlet---service()----");
+		Enumeration<String> e = request.getParameterNames();// userName,password
 		
+		while(e.hasMoreElements()) 
+		{
+			String paramName = e.nextElement();
+			
+			String paramValue = request.getParameter(paramName);
+			
+			out.print("<b>"+paramName+" </b>" + paramValue+"<br>");
+		}
+		
+		
+		
+//		String userName = request.getParameter("userName");
+//		String password = request.getParameter("password");
+		
+//		out.print("<b>password </b>" + password+"<br>");
 	}
 }

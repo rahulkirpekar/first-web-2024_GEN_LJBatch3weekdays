@@ -6,7 +6,7 @@
 </head>
 <body>
 	
-	<form action="loginServlet">
+	<form action="loginServlet" method="get">
 		<h3>Login Application</h3>
 		<table>
 			<tr>
@@ -17,13 +17,16 @@
 				<td>Password</td>
 				<td><input type="password" name="password"/></td>
 			</tr>
+			
+			<tr>
+				<td>Address</td>
+				<td><input type="text" name="address"/></td>
+			</tr>
 			<tr>
 				<td></td>
 				<td><input type="submit" /></td>
 			</tr>
 		</table>
 	</form>
-	
-	
 </body>
 </html>
