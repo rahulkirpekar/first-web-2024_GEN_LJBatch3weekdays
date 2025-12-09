@@ -1,0 +1,19 @@
+Servlet Colloboration:-
+------------------------
+	servlet1---------->servlet2--------->jsp---------->servlet
+
+
+1. request:-
+------------
+
+
+	FirstServlet
+			RequestDispatcher rd = request.getRequestDispatcher("urlPattern");
+			rd.forward(request,response);
+		
+
+
+2. response:-
+------------
+
+	response.sendRedirect("xyz");

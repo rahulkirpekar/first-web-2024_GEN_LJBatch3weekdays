@@ -20,15 +20,17 @@ public class SecondServlet extends HttpServlet
 	{
 		System.out.println("=============================================================");
 		System.out.println("SecondServlet---service()--- SecondServlet Object : " + this);
-		System.out.println("request : " + request);
 		
-		System.out.println("request.getRemoteHost() : " + request.getRemoteHost());
-		System.out.println("request.getRemoteAddr() : " + request.getRemoteAddr());
-		System.out.println("request.getRemotePort() : " + request.getRemotePort());
-		System.out.println("request.getRemoteUser() : " + request.getRemoteUser());
+		response.sendRedirect("https://www.google.com/");
+		
+//		System.out.println("request : " + request);
+//		System.out.println("request.getRemoteHost() : " + request.getRemoteHost());
+//		System.out.println("request.getRemoteAddr() : " + request.getRemoteAddr());
+//		System.out.println("request.getRemotePort() : " + request.getRemotePort());
+//		System.out.println("request.getRemoteUser() : " + request.getRemoteUser());
 		
 		
-		System.out.println("response : " + response);
+//		System.out.println("response : " + response);
 		System.out.println("=============================================================");
 	}
 	
