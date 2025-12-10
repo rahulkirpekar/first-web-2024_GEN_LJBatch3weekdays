@@ -50,4 +50,66 @@
 		<url-pattern>/loginServlet</url-pattern>	
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>ThirdServlet</servlet-name>
+		<servlet-class>com.royal.controller.ThirdServlet</servlet-class>
+		
+		<init-param>
+			<param-name>urlName</param-name>
+			<param-value>jdbc:mysql://localhost:3306/test</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>driverClass</param-name>
+			<param-value>com.mysql.jdbc.Driver</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>userName</param-name>
+			<param-value>root</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>password</param-name>
+			<param-value>root</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ThirdServlet</servlet-name>
+		<url-pattern>/thirdServlet</url-pattern>	
+	</servlet-mapping>
+	
+	
+	
+	<servlet>
+		<servlet-name>FourthServlet</servlet-name>
+		<servlet-class>com.royal.controller.FourthServlet</servlet-class>
+		
+		<init-param>
+			<param-name>urlName</param-name>
+			<param-value>jdbc:mysql://localhost:3306/test</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>driverClass</param-name>
+			<param-value>com.mysql.jdbc.Driver</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>userName</param-name>
+			<param-value>root</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>password</param-name>
+			<param-value>root</param-value>
+		</init-param>
+		
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FourthServlet</servlet-name>
+		<url-pattern>/fourthServlet</url-pattern>	
+	</servlet-mapping>
+	
+	
 </web-app>
