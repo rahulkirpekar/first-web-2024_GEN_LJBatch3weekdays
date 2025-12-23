@@ -1,0 +1,51 @@
+Data Sharing Scope(Attributes in Servlet):-
+---------------------------------------------
+
+	1. page(Single Page)
+	2. request(HttpServletRequest):-
+	----------------------------------
+			1.setAttribute(String key,Object value)
+			2.Object obj = getAttribute(String key);
+			3.void removeAttribute(String key);
+
+	3. session(HttpSession):-
+	-------------------------
+			1.setAttribute(String key,Object value)
+			2.Object obj = getAttribute(String key);
+			3.void removeAttribute(String key);
+
+	4. application(ServletContext):-
+	---------------------------------
+			1.setAttribute(String key,Object value)
+			2.Object obj = getAttribute(String key);
+			3.void removeAttribute(String key);
+
+
+-------------------------------------------------------------------------------------------------------
+
+// Data
+Student s=new Student(1,"Krishna",12);	
+	  |	
+	FirstServlet(request,response)--------------------------->SeconServlet(request,response)	
+	  |								|	 |
+  1. request.setAttribute("student1",s);				|Object obj = request.getAttribute("student1");
+	  |								|
+	  |								| Student s= (Student)obj;	
+RequestDispacher rd = request.getRequestDispacher("SecondServlet");	|SOP(s.getRno()+" " + s.getName()+" " + s.getStd());
+rd.forward(request,response)						|
+	  |								|
+	---------------------------------------------------------(request,response)
+
+									---------------------------------------------------
+									//Object obj = request.getAttribute("student1");
+									Student s = (Student)request.getAttribute("student1");
+
+
+									public Object getAttribute()
+									{
+										return obj;
+									}	
+
+
+
+	

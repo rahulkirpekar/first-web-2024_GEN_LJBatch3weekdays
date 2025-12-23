@@ -135,6 +135,22 @@
 		<url-pattern>/SixthServlet</url-pattern>	
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>SeventhServlet</servlet-name>
+		<servlet-class>com.royal.controller.SeventhServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SeventhServlet</servlet-name>
+		<url-pattern>/SeventhServlet</url-pattern>	
+	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>EighthServlet</servlet-name>
+		<servlet-class>com.royal.controller.EighthServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EighthServlet</servlet-name>
+		<url-pattern>/EighthServlet</url-pattern>	
+	</servlet-mapping>
 	
 </web-app>
