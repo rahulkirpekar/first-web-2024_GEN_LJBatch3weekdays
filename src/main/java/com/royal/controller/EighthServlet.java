@@ -17,13 +17,20 @@ public class EighthServlet extends HttpServlet
 	{
 //		Object obj = request.getAttribute("student");
 //		StudentBean s = (StudentBean)obj;
-		
+		System.out.println("------------------------------------------------");
+
 		StudentBean s1 = (StudentBean)request.getAttribute("student1");
 		StudentBean s2 = (StudentBean)request.getAttribute("student2");
 		
-		PrintWriter out = response.getWriter(); 
+		//PrintWriter out = response.getWriter(); 
 		
-		out.println("<b>EighthServlet : </b><br>" + s1.getRno()+" " + s1.getName()+" " + s1.getStd());
-		out.println("<br>" + s2.getRno()+" " + s2.getName()+" " + s2.getStd());
+		System.out.println("<b>EighthServlet : </b><br>" + s1.getRno()+" " + s1.getName()+" " + s1.getStd());
+		System.out.println("<br>" + s2.getRno()+" " + s2.getName()+" " + s2.getStd());
+		
+		request.removeAttribute("student2");
+		System.out.println("------------------------------------------------");
+		
+		request.getRequestDispatcher("NinethServlet").forward(request, response);
+		
 	}
 }

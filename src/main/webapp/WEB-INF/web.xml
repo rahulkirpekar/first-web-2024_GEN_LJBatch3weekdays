@@ -153,4 +153,46 @@
 		<url-pattern>/EighthServlet</url-pattern>	
 	</servlet-mapping>
 	
+	
+	<servlet>
+		<servlet-name>NinethServlet</servlet-name>
+		<servlet-class>com.royal.controller.NinethServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NinethServlet</servlet-name>
+		<url-pattern>/NinethServlet</url-pattern>	
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>TenthServlet</servlet-name>
+		<servlet-class>com.royal.controller.TenthServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TenthServlet</servlet-name>
+		<url-pattern>/TenthServlet</url-pattern>	
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EleventhServlet</servlet-name>
+		<servlet-class>com.royal.controller.EleventhServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EleventhServlet</servlet-name>
+		<url-pattern>/EleventhServlet</url-pattern>	
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>TwelveServlet</servlet-name>
+		<servlet-class>com.royal.controller.TwelveServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TwelveServlet</servlet-name>
+		<url-pattern>/TwelveServlet</url-pattern>	
+	</servlet-mapping>
+	
+	
+	
+	
 </web-app>
