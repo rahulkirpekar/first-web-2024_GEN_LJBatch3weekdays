@@ -193,6 +193,34 @@
 	</servlet-mapping>
 	
 	
+	<servlet>
+		<servlet-name>ThirteenServlet</servlet-name>
+		<servlet-class>com.royal.controller.ThirteenServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ThirteenServlet</servlet-name>
+		<url-pattern>/ThirteenServlet</url-pattern>	
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FourteenServlet</servlet-name>
+		<servlet-class>com.royal.controller.FourteenServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FourteenServlet</servlet-name>
+		<url-pattern>/FourteenServlet</url-pattern>	
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>FifteenServlet</servlet-name>
+		<servlet-class>com.royal.controller.FifteenServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FifteenServlet</servlet-name>
+		<url-pattern>/FifteenServlet</url-pattern>	
+	</servlet-mapping>
+	
 	
 	
 </web-app>
