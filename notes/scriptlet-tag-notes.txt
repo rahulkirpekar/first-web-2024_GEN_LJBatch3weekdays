@@ -1,0 +1,96 @@
+Jsp(Java Server Page)-
+-------------------------
+
+
+	       Servlet
+		 |
+		Jsp
+		 |
+		test1.jsp-----Translate(test1_jsp.java)
+					---------------
+					      |
+					test1_jsp.class(compile)	
+					      |
+					     run--output
+
+	1.init()-----------_jspInit()
+
+	2.service()--------_jspService
+
+	3.destroy()--------_jspDestroy()
+-----------------------------------------------------------------------
+
+Scripting Elements:-
+---------------------
+	1. scriptlet tag ---service(){..Java code...}
+	--------------------
+		<%
+			Java Code
+
+		%>	
+
+	2. expression tag:- 
+	---------------------
+				service()
+				{
+					out.print(argument);
+				}
+
+		<%=10+20%>
+
+	3. declaration tag:-
+	----------------------
+	<%!
+
+		void getCube(int no)
+		{	
+			return (no*no*no);
+		}
+	%>
+
+
+	class A
+	{
+		void getCube(int no)
+		{	
+			return (no*no*no);
+		}
+		
+		service()
+		{
+			
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
