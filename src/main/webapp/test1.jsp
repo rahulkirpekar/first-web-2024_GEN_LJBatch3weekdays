@@ -38,15 +38,5 @@
 	
 	Cube : <%=getCube(5)%>	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 </body>
 </html>

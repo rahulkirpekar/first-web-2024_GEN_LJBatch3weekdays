@@ -222,5 +222,16 @@
 	</servlet-mapping>
 	
 	
+	<servlet>
+		<servlet-name>InsertStudentServlet</servlet-name>
+		<servlet-class>com.royal.controller.InsertStudentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>InsertStudentServlet</servlet-name>
+		<url-pattern>/InsertStudentServlet</url-pattern>	
+	</servlet-mapping>
+	
+	
+	
 	
 </web-app>
