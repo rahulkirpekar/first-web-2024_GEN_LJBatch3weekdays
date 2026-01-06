@@ -8,7 +8,7 @@
   metadata-complete="true">
   
   <welcome-file-list>
-  	<welcome-file>home.html</welcome-file>
+  	<welcome-file>studentregi.jsp</welcome-file>
   </welcome-file-list>
 
 
