@@ -72,10 +72,10 @@
 
     <form action="InsertStudentServlet" method="post">
         <label>Full Name:</label>  ${fullnameErr}
-        <input type="text" name="fullname" > 
+        <input type="text" name="fullname" value="${sbean.fullname}"> 
 
         <label>Age:</label>  ${ageErr}
-        <input type="number" name="age">
+        <input type="number" name="age" value="${sbean.age}">
 
         <label>Select Course:</label> ${courseErr}
         <select name="course">   
@@ -108,16 +108,16 @@
         <br><br>
 
         <label>Date of Birth:</label>${dobErr}
-        <input type="date" name="dob">
+        <input type="date" name="dob" value="${sbean.dob}"> 
 
         <label>Email ID:</label>  ${emailErr}
-        <input type="email" name="email">
+        <input type="email" name="email" value="${sbean.email}">
 
         <label>Mobile Number:</label>${mobileErr}
-        <input type="tel" name="mobile">
+        <input type="tel" name="mobile" value="${sbean.mobile}">
 
         <label>Address:</label>${addressErr}
-        <textarea name="address" rows="3"></textarea>
+        <textarea name="address" rows="3">${sbean.address}</textarea>
 
         <div class="btn-container">
             <input type="submit" value="Register">

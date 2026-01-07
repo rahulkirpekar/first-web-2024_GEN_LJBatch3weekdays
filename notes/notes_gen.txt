@@ -17,3 +17,38 @@ Servlet Colloboration:-
 ------------
 
 	response.sendRedirect("xyz");
+	
+	
+	EL :  Expression Language
+----------------------------
+
+	${fullnameErr}
+
+
+	1. request
+	2. session
+	3. application
+
+
+
+
+fullnameErr
+ageErr
+courseErr
+genderErr
+hobbyErr
+dobErr
+emailErr
+mobileErr
+addressErr
+
+----------------
+fullname
+age
+course
+gender
+hobby
+dob
+email
+mobile
+address
