@@ -123,4 +123,17 @@ public class StudentBean
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	
+	public boolean isAvailableHobby(String hobby) 
+	{
+		for (int i = 0; i < this.hobby.length; i++) 
+		{
+			if(this.hobby[i].equals(hobby)) 
+			{
+				return true;
+			}
+		}
+		return false;		
+	}
 }

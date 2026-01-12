@@ -81,30 +81,30 @@
         <select name="course">   
             <option value="">-- Select Course --</option>
 
-            <option value="C Programming" >C Programming</option>
+            <option value="C Programming" ${sbean.course == 'C Programming' ? 'selected' : ''} >C Programming</option>
             
-            <option value="C++">C++</option>
+            <option value="C++"  ${sbean.course == 'C++' ? 'selected' : ''}>C++</option>
             
-            <option value="Core Java" >Core Java</option>
+            <option value="Core Java"   ${sbean.course == 'Core Java' ? 'selected' : ''} >Core Java</option>
             
-            <option value="Advanced Java">Advanced Java</option>
+            <option value="Advanced Java"   ${sbean.course == 'Advanced Java' ? 'selected' : ''}>Advanced Java</option>
             
-            <option value="Python">Python</option>
+            <option value="Python"   ${sbean.course == 'Python' ? 'selected' : ''}>Python</option>
             
         </select>
 
         <label>Gender:</label>${genderErr}  <br>
-        <input type="radio" name="gender" value="Male"  > Male
-        <input type="radio" name="gender" value="Female"> Female
-        <input type="radio" name="gender" value="Other" > Other
+        <input type="radio" name="gender" value="Male"    ${sbean.gender == 'Male' ? 'checked' : ''} > Male
+        <input type="radio" name="gender" value="Female"  ${sbean.gender == 'Female' ? 'checked' : ''} > Female
+        <input type="radio" name="gender" value="Other"   ${sbean.gender == 'Other' ? 'checked' : ''} > Other
         <br><br>
 
 
         <label>Hobbies:</label> ${hobbyErr}  <br>
-        <input type="checkbox" name="hobby" value="Reading"> Reading
-        <input type="checkbox" name="hobby" value="Music"> Music
-        <input type="checkbox" name="hobby" value="Sports"> Sports
-        <input type="checkbox" name="hobby" value="Coding"> Coding
+        <input type="checkbox" name="hobby" value="Reading" ${sbean.isAvailableHobby('Reading') ? 'checked' : '' }  > Reading
+        <input type="checkbox" name="hobby" value="Music"   ${sbean.isAvailableHobby('Music') ? 'checked' : '' }  > Music
+        <input type="checkbox" name="hobby" value="Sports"  ${sbean.isAvailableHobby('Sports') ? 'checked' : '' }  > Sports
+        <input type="checkbox" name="hobby" value="Coding"  ${sbean.isAvailableHobby('Coding') ? 'checked' : '' }  > Coding
         <br><br>
 
         <label>Date of Birth:</label>${dobErr}

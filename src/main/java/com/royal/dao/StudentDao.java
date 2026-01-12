@@ -6,7 +6,7 @@ public class StudentDao {
 
 	public int insertStudent(StudentBean sbean) 
 	{
-		return 0;
+		return 1;
 	}
 
 }
