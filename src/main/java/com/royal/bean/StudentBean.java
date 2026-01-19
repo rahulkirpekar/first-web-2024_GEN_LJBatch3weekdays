@@ -125,11 +125,15 @@ public class StudentBean
 	}
 	
 	
-	public boolean isAvailableHobby(String hobby) 
+	public boolean isAvailableHobby(String value) 
 	{
-		for (int i = 0; i < this.hobby.length; i++) 
+		if(hobby == null) 
 		{
-			if(this.hobby[i].equals(hobby)) 
+			return false;
+		}
+		for (int i = 0; i < hobby.length; i++) 
+		{
+			if(hobby[i].equals(value)) 
 			{
 				return true;
 			}
