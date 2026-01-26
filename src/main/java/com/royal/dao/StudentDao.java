@@ -9,26 +9,12 @@ import java.util.ArrayList;
 import com.royal.bean.StudentBean;
 import com.royal.util.DBConnection;
 
-public class StudentDao {
-
+public class StudentDao 
+{
 	public int insertStudent(StudentBean sbean) 
 	{
-		String hobbies[] = sbean.getHobby();
-		String hobbiesStr = "";
-		
-		for( int i = 0 ;i < hobbies.length;i++) 
-		{
-			if(i < (hobbies.length-1)) 
-			{
-				hobbiesStr = hobbiesStr + hobbies[i]+"," ;
-			}else 
-			{
-				hobbiesStr = hobbiesStr + hobbies[i] ;
-			}
-		}
-		
 		String insertQuery = "INSERT INTO student(full_name,age,course,gender,hobbies,date_of_birth,email,mobile,address) "
-				+ "VALUES('"+sbean.getFullname()+"',"+sbean.getAge()+",'"+sbean.getCourse()+"','"+sbean.getGender()+"','"+hobbiesStr+"','"+sbean.getDob()+"','"+sbean.getEmail()+"','"+sbean.getMobile()+"','"+sbean.getAddress()+"')";
+				+ "VALUES('"+sbean.getFullname()+"',"+sbean.getAge()+",'"+sbean.getCourse()+"','"+sbean.getGender()+"','"+sbean.getHobbiesStr()+"','"+sbean.getDob()+"','"+sbean.getEmail()+"','"+sbean.getMobile()+"','"+sbean.getAddress()+"')";
 		
 		System.out.println("insertQuery : " + insertQuery);
 		
@@ -102,6 +88,39 @@ public class StudentDao {
 			System.out.println("StudentDao---getAllStudentRecords() DB not connected");
 		}
 		return list;
+	}
+	
+	public boolean isUserEmailUnique(String email) 
+	{
+		String isAvailableEmailQuery = "SELECT * from student WHERE email='"+email+"'";
+		
+		System.out.println("isAvailableEmail : " + isAvailableEmailQuery);
+		
+		Connection conn = DBConnection.getDBInstance();
+		Statement stmt = null;
+		ResultSet rs = null;
+		if (conn != null) 
+		{
+			try 
+			{
+				stmt = conn.createStatement();
+			
+				rs = stmt.executeQuery(isAvailableEmailQuery);
+				
+				if (rs.next()) 
+				{
+					return false;
+				}
+				
+			} catch (SQLException e) 
+			{
+				e.printStackTrace();
+			}
+		} else 
+		{
+			System.out.println("StudentDao---isUserEmailUnique() DB not connected");
+		}
+		return true;
 	}
 }
 

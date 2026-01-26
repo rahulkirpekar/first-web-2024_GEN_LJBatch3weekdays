@@ -94,7 +94,14 @@ public class InsertStudentServlet extends HttpServlet
 		
 		if(StringUtils.isValidString(email)) 
 		{
-			sbean.setEmail(email);
+			if(new StudentDao().isUserEmailUnique(email)) 
+			{
+				sbean.setEmail(email);
+			}else 
+			{
+				flag = true;
+				request.setAttribute("emailErr","<font color='red'>Please enter Unique Email.</font>");
+			}
 		}else 
 		{
 			flag = true;

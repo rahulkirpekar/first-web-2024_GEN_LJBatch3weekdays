@@ -140,4 +140,24 @@ public class StudentBean
 		}
 		return false;		
 	}
+	
+	
+	public String getHobbiesStr()
+	{
+		
+		String hobbies[] = getHobby();
+		String hobbiesStr = "";
+		
+		for( int i = 0 ;i < hobbies.length;i++) 
+		{
+			if(i < (hobbies.length-1)) 
+			{
+				hobbiesStr = hobbiesStr + hobbies[i]+"," ;
+			}else 
+			{
+				hobbiesStr = hobbiesStr + hobbies[i] ;
+			}
+		}
+		return hobbiesStr;
+	}
 }
