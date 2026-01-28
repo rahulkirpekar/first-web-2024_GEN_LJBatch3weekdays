@@ -122,6 +122,32 @@ public class StudentDao
 		}
 		return true;
 	}
+
+	public int deleteStudentbyId(int id) 
+	{
+		String deleteQuery = "DELETE FROM student WHERE id = "+id;
+
+		Connection conn = DBConnection.getDBInstance();
+		int rowsAffected  = 0 ; 
+		Statement stmt = null;
+		if (conn!=null) 
+		{
+			try 
+			{
+				stmt = conn.createStatement();
+				
+				rowsAffected = stmt.executeUpdate(deleteQuery);
+			} catch (SQLException e) 
+			{
+				e.printStackTrace();
+			}
+			
+		} else 
+		{
+			System.out.println("DB not connected : " + conn);
+		}
+		return rowsAffected ;	
+	}
 }
 
 
