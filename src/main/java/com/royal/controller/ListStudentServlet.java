@@ -29,3 +29,6 @@ public class ListStudentServlet extends HttpServlet
 		request.getRequestDispatcher("studlist.jsp").forward(request, response);
 	}
 }
+
+
+
