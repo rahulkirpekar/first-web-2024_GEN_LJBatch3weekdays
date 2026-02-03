@@ -116,7 +116,7 @@
         <input type="date" name="dob" value="${sbean.dob}"> 
 
         <label>Email ID:</label>  ${emailErr}
-        <input type="email" name="email" value="${sbean.email}">
+        <input type="email" name="email" value="${sbean.email}" readonly="readonly">
 
         <label>Mobile Number:</label>${mobileErr}
         <input type="tel" name="mobile" value="${sbean.mobile}">

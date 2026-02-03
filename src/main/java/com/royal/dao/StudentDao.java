@@ -197,6 +197,35 @@ public class StudentDao
 		}
 		return sbean;
 	}
+
+	public int updateStudent(StudentBean sbean, int id) 
+	{
+		String hobbiesStr = sbean.getHobbiesStr();
+		String updateQuery = "UPDATE student SET full_name='"+sbean.getFullname()+"',age="+sbean.getAge()+" , course='"+sbean.getCourse()+"',gender='"+sbean.getGender()+"',hobbies='"+hobbiesStr+"',date_of_birth='"+sbean.getDob()+"',mobile='"+sbean.getMobile()+"',address='"+sbean.getAddress()+"' WHERE id="+id;
+
+		System.out.println("updateQuery : " + updateQuery);
+		
+		Connection conn = DBConnection.getDBInstance();
+		int rowsAffected  = 0 ; 
+		Statement stmt = null;
+		if (conn!=null) 
+		{
+			try 
+			{
+				stmt = conn.createStatement();
+				
+				rowsAffected = stmt.executeUpdate(updateQuery);
+			} catch (SQLException e) 
+			{
+				e.printStackTrace();
+			}
+			
+		} else 
+		{
+			System.out.println("DB not connected : " + conn);
+		}
+		return rowsAffected ;	
+	}
 }
 
 
