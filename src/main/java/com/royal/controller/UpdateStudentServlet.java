@@ -166,6 +166,5 @@ public class UpdateStudentServlet extends HttpServlet
 			}
 		}
 		rd.forward(request, response);
-		
 	}
 }

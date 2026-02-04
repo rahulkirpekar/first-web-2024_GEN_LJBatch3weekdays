@@ -2,7 +2,10 @@ package com.royal.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Enumeration;
+
+import com.royal.bean.UserBean;
+import com.royal.dao.UserDao;
+import com.royal.util.StringUtils;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -11,59 +14,24 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class LoginServlet extends HttpServlet
 {
-	
-	// htmlform(get)------servlet---doGet()---Works
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		PrintWriter out = 	response.getWriter();
-		out.print("<b>LoginServlet ---Hi I am Get Request--Handled By doGet()</b><br>");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
 		
-		Enumeration<String> e = request.getParameterNames();// userName,password
+		PrintWriter out=	response.getWriter();
 		
-		while(e.hasMoreElements()) 
+		if(StringUtils.isValidString(username) && StringUtils.isValidString(password)) 
 		{
-			String paramName = e.nextElement();
+			UserDao userDao = new UserDao();
 			
-			String paramValue = request.getParameter(paramName);
+			UserBean userBean = userDao.authenticateLogin(username, password);
 			
-			out.print("<b>"+paramName+" </b>" + paramValue+"<br>");
+			
+		}else 
+		{
+			
 		}
-		
-//		String userName = request.getParameter("userName");
-//		String password = request.getParameter("password");
-		
-//		out.print("<b>password </b>" + password+"<br>");
-		
 	}
-	
-	// htmlform(post)-----servlet---doGet()---Works
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
-		doGet(request, response);
-	}
-	
-//	@Override
-//	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-//	{
-//		PrintWriter out = 	response.getWriter();
-//		out.print("<b>LoginServlet </b><br>");
-//		
-//		Enumeration<String> e = request.getParameterNames();// userName,password
-//		
-//		while(e.hasMoreElements()) 
-//		{
-//			String paramName = e.nextElement();
-//			
-//			String paramValue = request.getParameter(paramName);
-//			
-//			out.print("<b>"+paramName+" </b>" + paramValue+"<br>");
-//		}
-//		
-////		String userName = request.getParameter("userName");
-////		String password = request.getParameter("password");
-//		
-////		out.print("<b>password </b>" + password+"<br>");
-//	}
 }
