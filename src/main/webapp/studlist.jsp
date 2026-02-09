@@ -109,7 +109,9 @@
 <%
     ArrayList<StudentBean> list = (ArrayList<StudentBean>) request.getAttribute("list");
 %>
-
+<a href="LogoutServlet">Logout</a>
+		
+		<h2>Welcome, ${userBean.name}</h2>
 <h2>Student Records</h2>
 
 <div class="card">

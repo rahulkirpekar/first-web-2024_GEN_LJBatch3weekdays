@@ -43,10 +43,13 @@
     </style>
 </head>
 <body>
-
+		
     <div class="login-container">
-        <h2>Login</h2>
-        <form action="LoginServlet">
+        <h2>Login</h2> 
+        <form action="LoginServlet" method="post">
+            <label> ${logoutSuccess}</label>
+            <label>${loginAccess}</label>
+            <br>
             <label>Username</label>
             <input type="text" name="username" placeholder="Enter username" required>
 

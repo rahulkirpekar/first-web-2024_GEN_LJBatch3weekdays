@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@page import="com.royal.bean.UserBean"%>
 <html>
 <head>
 	
@@ -66,7 +67,24 @@
 </head>
 
 <body>
+		
+<%
+	UserBean userBean = (UserBean)session.getAttribute("userBean");
+	
+	if(userBean==null)
+	{
+		request.setAttribute("loginAccess", "<font color='red'> Please login first.</font");
+		request.getRequestDispatcher("login.jsp").forward(request,response);
+	}else
+	{
+%>		
+		<a href="LogoutServlet">Logout</a>
+		
+		<h2>Welcome, ${userBean.name}</h2>
 
+<%	}
+%>
+		
 <div class="container">
     <h2>Student Registration Form</h2>
 
