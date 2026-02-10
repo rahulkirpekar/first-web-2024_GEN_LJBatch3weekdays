@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<%@page import="com.royal.bean.UserBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.royal.bean.StudentBean"%>
 
@@ -106,12 +107,26 @@
 
 <body>
 
+		
+<%
+	UserBean userBean = (UserBean)session.getAttribute("userBean");
+	
+	if(userBean==null)
+	{
+		request.setAttribute("loginAccess", "<font color='red'> Please login first.</font");
+		request.getRequestDispatcher("login.jsp").forward(request,response);
+	}else
+	{
+%>		
+		<a href="LogoutServlet">Logout</a>
+		
+		<h2>Welcome, ${userBean.name}</h2>
+
+<%	}
+%>
 <%
     ArrayList<StudentBean> list = (ArrayList<StudentBean>) request.getAttribute("list");
 %>
-<a href="LogoutServlet">Logout</a>
-		
-		<h2>Welcome, ${userBean.name}</h2>
 <h2>Student Records</h2>
 
 <div class="card">
