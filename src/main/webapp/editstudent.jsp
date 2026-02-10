@@ -3,69 +3,185 @@
 <head>
 	
     <title>Student Registration Form</title> 
-    <style>
-        body {
-            background: #f3f7ff;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            width: 450px;
-            background: white;
-            margin: 40px auto;
-            padding: 25px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-            border-radius: 8px;
-        }
-        h2 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        label {
-            font-size: 15px;
-            color: #333;
-            font-weight: bold;
-        }
-        input, select, textarea {
-            width: 100%;
-            padding: 8px;
-            margin: 6px 0 15px 0;
-            border: 1px solid #888;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        input[type="radio"], input[type="checkbox"]{
-            width: auto;
-            margin-right: 5px;
-        }
-        .btn-container {
-            text-align: center;
-        }
-        input[type="submit"], input[type="reset"] {
-            width: 120px;
-            padding: 10px;
-            border: none;
-            color: white;
-            font-weight: bold;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        input[type="submit"] {
-            background: #007bff;
-        }
-        input[type="submit"]:hover {
-            background: #0056b3;
-        }
-        input[type="reset"] {
-            background: #d9534f;
-        }
-        input[type="reset"]:hover {
-            background: #a94442;
-        }
-    </style>
+<style>
+
+body{
+    background:#f4f6fb;
+    font-family:'Segoe UI',Tahoma,sans-serif;
+    margin:0;
+}
+
+/* ===== HEADER ===== */
+
+.header{
+    background:white;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+.welcome-text{
+    font-size:18px;
+    font-weight:600;
+    color:#2c3e50;
+}
+
+.logout-btn{
+    background:#ff4d4f;
+    color:white;
+    padding:8px 16px;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.logout-btn:hover{
+    background:#d9363e;
+}
+
+/* ===== PAGE WRAPPER ===== */
+
+.page-wrapper{
+    max-width:700px;
+    margin:40px auto;
+    padding:0 20px;
+}
+
+/* ===== CARD ===== */
+
+.container{
+    background:white;
+    padding:35px;
+    border-radius:14px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* ===== TITLE ===== */
+
+h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#2c3e50;
+    font-weight:600;
+}
+
+/* ===== FORM ELEMENTS ===== */
+
+label{
+    font-size:14px;
+    font-weight:600;
+    color:#444;
+}
+
+input,select,textarea{
+    width:100%;
+    padding:12px;
+    margin-top:6px;
+    margin-bottom:18px;
+    border:1px solid #ddd;
+    border-radius:6px;
+    transition:0.3s;
+    font-size:14px;
+}
+
+input:focus,select:focus,textarea:focus{
+    outline:none;
+    border-color:#1677ff;
+    box-shadow:0 0 5px rgba(22,119,255,0.3);
+}
+
+/* readonly styling */
+
+input[readonly]{
+    background:#f3f4f6;
+    cursor:not-allowed;
+}
+
+/* radio checkbox alignment */
+
+.option-group{
+    margin-bottom:18px;
+}
+
+.option-group label{
+    font-weight:normal;
+    margin-right:15px;
+}
+
+input[type="radio"],
+input[type="checkbox"]{
+    width:auto;
+    margin-right:5px;
+}
+
+/* ===== BUTTONS ===== */
+
+.btn-container{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
+}
+
+input[type="submit"]{
+    background:#1677ff;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:6px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+input[type="submit"]:hover{
+    background:#0958d9;
+}
+
+input[type="reset"]{
+    background:#6c757d;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:6px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+input[type="reset"]:hover{
+    background:#545b62;
+}
+
+</style>
+    
 </head>
 
 <body>
+<%@page import="com.royal.bean.UserBean"%>
+
+<%
+UserBean userBean = (UserBean)session.getAttribute("userBean");
+
+if(userBean == null){
+    request.setAttribute("loginAccess","<font color='red'>Please login first.</font>");
+    request.getRequestDispatcher("login.jsp").forward(request,response);
+    return;
+}
+%>
+<div class="header">
+
+    <div class="welcome-text">
+        Welcome, ${userBean.name}
+    </div>
+
+    <a href="LogoutServlet" class="logout-btn">Logout</a>
+
+</div>
+
+
+
+<div class="page-wrapper">
 
 <div class="container">
     <h2>Edit Student Registration Form</h2>
@@ -98,19 +214,23 @@
             
         </select>
 
-        <label>Gender:</label>${genderErr}  <br>
-        <input type="radio" name="gender" value="Male"    ${sbean.gender == 'Male' ? 'checked' : ''} > Male
-        <input type="radio" name="gender" value="Female"  ${sbean.gender == 'Female' ? 'checked' : ''} > Female
-        <input type="radio" name="gender" value="Other"   ${sbean.gender == 'Other' ? 'checked' : ''} > Other
-        <br><br>
+        <label>Gender:</label>
+		<div class="option-group">
+		    <label><input type="radio" name="gender" value="Male" ${sbean.gender == 'Male' ? 'checked' : ''}> Male</label>
+		    <label><input type="radio" name="gender" value="Female" ${sbean.gender == 'Female' ? 'checked' : ''}> Female</label>
+		    <label><input type="radio" name="gender" value="Other" ${sbean.gender == 'Other' ? 'checked' : ''}> Other</label>
+		</div>
 
 
-        <label>Hobbies:</label> ${hobbyErr}  <br>
-        <input type="checkbox" name="hobby" value="Reading" ${sbean.isAvailableHobby('Reading') ? 'checked' : '' }  > Reading
-        <input type="checkbox" name="hobby" value="Music"   ${sbean.isAvailableHobby('Music') ? 'checked' : '' }  > Music
-        <input type="checkbox" name="hobby" value="Sports"  ${sbean.isAvailableHobby('Sports') ? 'checked' : '' }  > Sports
-        <input type="checkbox" name="hobby" value="Coding"  ${sbean.isAvailableHobby('Coding') ? 'checked' : '' }  > Coding
-        <br><br>
+
+       <label>Hobbies:</label>
+		<div class="option-group">
+		    <label><input type="checkbox" name="hobby" value="Reading" ${sbean.isAvailableHobby('Reading') ? 'checked' : ''}> Reading</label>
+		    <label><input type="checkbox" name="hobby" value="Music" ${sbean.isAvailableHobby('Music') ? 'checked' : ''}> Music</label>
+		    <label><input type="checkbox" name="hobby" value="Sports" ${sbean.isAvailableHobby('Sports') ? 'checked' : ''}> Sports</label>
+		    <label><input type="checkbox" name="hobby" value="Coding" ${sbean.isAvailableHobby('Coding') ? 'checked' : ''}> Coding</label>
+		</div>
+
 
         <label>Date of Birth:</label>${dobErr}
         <input type="date" name="dob" value="${sbean.dob}"> 
@@ -129,6 +249,7 @@
             <input type="reset" value="Clear">
         </div>
     </form>
+</div>
 </div>
 </body>
 </html>
