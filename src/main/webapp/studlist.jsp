@@ -10,124 +10,166 @@
 <title>Student List</title>
 
 <style>
-    /* ===== Global Styles ===== */
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f4f6f9;
-        margin: 0;
-        padding: 20px;
-    }
 
-    h2 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 20px;
-    }
+body {
+    background: #f4f6fb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0;
+}
 
-    /* ===== Card Layout ===== */
-    .card {
-        background-color: #ffffff;
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        overflow-x: auto;
-    }
+/* ===== HEADER ===== */
 
-    /* ===== Table Styles ===== */
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        min-width: 1000px;
-    }
+.header {
+    width:100%;
+    background:white;
+    padding:15px 30px;
+    box-shadow:0px 2px 10px rgba(0,0,0,0.06);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
 
-    thead {
-        background-color: #2c3e50;
-        color: #ffffff;
-    }
+.welcome-text {
+    font-size:18px;
+    font-weight:600;
+    color:#2c3e50;
+}
 
-    th, td {
-        padding: 12px 14px;
-        text-align: center;
-        border-bottom: 1px solid #ddd;
-        font-size: 14px;
-    }
+.logout-btn {
+    background:#ff4d4f;
+    color:white;
+    padding:8px 14px;
+    text-decoration:none;
+    border-radius:6px;
+    font-weight:600;
+    transition:0.3s;
+}
 
-    th {
-        text-transform: uppercase;
-        font-size: 13px;
-        letter-spacing: 0.5px;
-    }
+.logout-btn:hover {
+    background:#d9363e;
+}
 
-    tbody tr:hover {
-        background-color: #f1f5ff;
-        transition: background-color 0.3s;
-    }
+/* ===== MAIN CONTAINER ===== */
 
-    /* ===== Action Buttons ===== */
-    .action-btn {
-        text-decoration: none;
-        padding: 6px 12px;
-        border-radius: 4px;
-        font-size: 13px;
-        font-weight: 500;
-        margin: 0 3px;
-        display: inline-block;
-    }
+.container {
+    width:95%;
+    margin:40px auto;
+}
 
-    .edit-btn {
-        background-color: #3498db;
-        color: #fff;
-    }
+.page-title {
+    font-size:24px;
+    font-weight:600;
+    margin-bottom:20px;
+    color:#2c3e50;
+}
 
-    .edit-btn:hover {
-        background-color: #2980b9;
-    }
+/* ===== CARD ===== */
 
-    .delete-btn {
-        background-color: #e74c3c;
-        color: #fff;
-    }
+.card {
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0px 6px 18px rgba(0,0,0,0.08);
+    overflow-x:auto;
+}
 
-    .delete-btn:hover {
-        background-color: #c0392b;
-    }
+/* ===== TABLE ===== */
 
-    /* ===== Responsive ===== */
-    @media (max-width: 768px) {
-        h2 {
-            font-size: 18px;
-        }
-        th, td {
-            font-size: 12px;
-            padding: 10px;
-        }
-    }
+table {
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead {
+    background:#007bff;
+    color:white;
+}
+
+th {
+    padding:12px;
+    text-align:left;
+    font-size:14px;
+}
+
+td {
+    padding:12px;
+    border-bottom:1px solid #eee;
+    font-size:14px;
+}
+
+tbody tr:hover {
+    background:#f8fbff;
+    transition:0.3s;
+}
+
+/* ===== ACTION BUTTONS ===== */
+
+.action-btn {
+    padding:6px 10px;
+    text-decoration:none;
+    border-radius:5px;
+    font-size:13px;
+    font-weight:600;
+    margin-right:5px;
+}
+
+.edit-btn {
+    background:#28a745;
+    color:white;
+}
+
+.edit-btn:hover {
+    background:#1e7e34;
+}
+
+.delete-btn {
+    background:#dc3545;
+    color:white;
+}
+
+.delete-btn:hover {
+    background:#b02a37;
+}
+
 </style>
+
 </head>
 
 <body>
 
-		
 <%
-	UserBean userBean = (UserBean)session.getAttribute("userBean");
-	
-	if(userBean==null)
-	{
-		request.setAttribute("loginAccess", "<font color='red'> Please login first.</font");
-		request.getRequestDispatcher("login.jsp").forward(request,response);
-	}else
-	{
-%>		
-		<a href="LogoutServlet">Logout</a>
-		
-		<h2>Welcome, ${userBean.name}</h2>
+    UserBean userBean = (UserBean)session.getAttribute("userBean");
 
-<%	}
+    if(userBean == null)
+    {
+        request.setAttribute("loginAccess", "<font color='red'>Please login first.</font>");
+        request.getRequestDispatcher("login.jsp").forward(request,response);
+        return;
+    }
 %>
+
+<div class="header">
+
+    <div class="welcome-text">
+        Welcome, ${userBean.name}
+    </div>
+
+    <a href="LogoutServlet" class="logout-btn">Logout</a>
+
+</div>
+
+<body>		
 <%
     ArrayList<StudentBean> list = (ArrayList<StudentBean>) request.getAttribute("list");
 %>
-<h2>Student Records</h2>
+
+<div class="container">
+
+<div class="page-title">
+    Student Records
+</div>
+
+
 
 <div class="card">
     <table>
@@ -185,6 +227,6 @@
         </tbody>
     </table>
 </div>
-
+</div>
 </body>
 </html>
