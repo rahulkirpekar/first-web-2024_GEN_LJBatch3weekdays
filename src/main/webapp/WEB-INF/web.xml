@@ -34,6 +34,25 @@
 	</context-param>
 
 
+	<servlet>
+		<servlet-name>SeventeenServlet</servlet-name>
+		<servlet-class>com.royal.controller.SeventeenServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SeventeenServlet</servlet-name>
+		<url-pattern>/SeventeenServlet</url-pattern>	
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>EighteenServlet</servlet-name>
+		<servlet-class>com.royal.controller.EighteenServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EighteenServlet</servlet-name>
+		<url-pattern>/EighteenServlet</url-pattern>	
+	</servlet-mapping>
+
 
 
 
@@ -281,6 +300,14 @@
 		<display-name>TestServletRequestListener</display-name>
 		<listener-class>com.royal.listener.TestServletRequestListener</listener-class>
 	</listener>
+	
+	
+	<listener>
+		<display-name>TestServletRequestAttributeListener</display-name>
+		<listener-class>com.royal.listener.TestServletRequestAttributeListener</listener-class>
+	</listener>
+	
+	
 	
 </web-app>
 
