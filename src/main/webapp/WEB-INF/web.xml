@@ -307,6 +307,28 @@
 		<listener-class>com.royal.listener.TestServletRequestAttributeListener</listener-class>
 	</listener>
 	
+	<listener>
+		<display-name>TestHttpSessionListener</display-name>
+		<listener-class>com.royal.listener.TestHttpSessionListener</listener-class>
+	</listener>
+	
+	
+	<listener>
+		<display-name>TestHttpSessionAttrubuteListener</display-name>
+		<listener-class>com.royal.listener.TestHttpSessionAttrubuteListener</listener-class>
+	</listener>
+	
+	
+	
+		<servlet>
+		<servlet-name>TwentyServlet</servlet-name>
+		<servlet-class>com.royal.controller.TwentyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TwentyServlet</servlet-name>
+		<url-pattern>/TwentyServlet</url-pattern>	
+	</servlet-mapping>
+	
 	
 	
 </web-app>
