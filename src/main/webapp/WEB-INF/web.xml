@@ -318,6 +318,15 @@
 		<listener-class>com.royal.listener.TestHttpSessionAttrubuteListener</listener-class>
 	</listener>
 	
+	<listener>
+		<display-name>TestServletContextListener</display-name>
+		<listener-class>com.royal.listener.TestServletContextListener</listener-class>
+	</listener>
+	
+	<listener>
+		<display-name>TestServletContextAttributeListener</display-name>
+		<listener-class>com.royal.listener.TestServletContextAttributeListener</listener-class>
+	</listener>
 	
 	
 		<servlet>
