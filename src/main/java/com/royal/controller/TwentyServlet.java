@@ -2,7 +2,6 @@ package com.royal.controller;
 
 import java.io.IOException;
 
-import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,12 +13,13 @@ public class TwentyServlet extends HttpServlet
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		System.out.println("=====TwentyServlet : service()====");
 //		HttpSession session = request.getSession();
 //		session.setAttribute("userName", "Rahul Kirpekar");
-		System.out.println("TwentyServlet : service()");
+//		System.out.println("TwentyServlet : service()");
 		
-		ServletContext context = getServletContext();
+//		ServletContext context = getServletContext();
 		
-		context.setAttribute("test1", "Royal technosoft");
+//		context.setAttribute("test1", "Royal technosoft");
 	}
 }

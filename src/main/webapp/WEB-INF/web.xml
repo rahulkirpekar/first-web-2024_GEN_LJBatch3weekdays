@@ -329,7 +329,7 @@
 	</listener>
 	
 	
-		<servlet>
+	<servlet>
 		<servlet-name>TwentyServlet</servlet-name>
 		<servlet-class>com.royal.controller.TwentyServlet</servlet-class>
 	</servlet>
@@ -337,7 +337,16 @@
 		<servlet-name>TwentyServlet</servlet-name>
 		<url-pattern>/TwentyServlet</url-pattern>	
 	</servlet-mapping>
-	
+
+
+	<filter>
+		<filter-name>TestFilter</filter-name>
+		<filter-class>com.royal.filter.TestFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>TestFilter</filter-name>
+		<url-pattern>/TwentyServlet</url-pattern>	
+	</filter-mapping>
 	
 	
 </web-app>
