@@ -15,20 +15,25 @@ public class LogoutServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
+    	
+    		RequestDispatcher rd = null;
 
         // get existing session (do not create new)
         HttpSession session = request.getSession(false);
 
+        
         // if session exists -> invalidate
-        if (session != null) {
+        if (session != null) 
+        {
             session.invalidate();
+            // set logout message
+            request.setAttribute("logoutSuccess", "Logout Successfully.");
+        }else 
+        {
+            request.setAttribute("logoutSuccess", "Invalid Access, Please Login First .");
         }
-
-        // set logout message
-        request.setAttribute("logoutSuccess", "Logout Successfully.");
-
         // forward to login page
-        RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+        rd = request.getRequestDispatcher("login.jsp");
         rd.forward(request, response);
     }
 }

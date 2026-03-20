@@ -184,11 +184,9 @@ public class InsertStudentServlet extends HttpServlet
 			}
 		}else 
 		{
-			request.setAttribute("loginAccess", "<font color='red'> Please Enter login first.</font");
+			request.setAttribute("loginAccess", "<font color='red'>Invalid Access, Please Enter login first.</font");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
-
-
 	}
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 

@@ -8,5 +8,12 @@
 </head>
 <body>
 	<h3>Exception Occured</h3> : <%=exception %>
+	
+	<%
+		request.getAttribute();
+	
+	%>
+	
+	
 </body>
 </html>

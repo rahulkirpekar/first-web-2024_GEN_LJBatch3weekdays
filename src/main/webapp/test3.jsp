@@ -5,10 +5,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		int ans = 100/0;
-	%>
+	<%@include file="header.jsp" %>
 
+	
+	<h1> Test1 Page</h1>
+
+
+
+	<%@include file="footer.jsp" %>
 
 </body>
 </html>
